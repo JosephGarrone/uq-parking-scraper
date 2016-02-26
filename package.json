@@ -1,0 +1,23 @@
+{
+  "name": "uq-parking-scraper",
+  "version": "0.0.1",
+  "description": "A utility for scraping the parking details off the UQ Parking website",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JosephGarrone/uq-parking-scraper.git"
+  },
+  "author": "Joseph J Garrone <josephgarrone+npm@gmail.com> (https://www.illogicalbit.com)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/JosephGarrone/uq-parking-scraper/issues"
+  },
+  "homepage": "https://github.com/JosephGarrone/uq-parking-scraper#readme",
+  "dependencies": {
+    "cheerio": "^0.20.0",
+    "request": "^2.69.0"
+  }
+}
