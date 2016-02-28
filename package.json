@@ -18,6 +18,8 @@
   "homepage": "https://github.com/JosephGarrone/uq-parking-scraper#readme",
   "dependencies": {
     "cheerio": "^0.20.0",
-    "request": "^2.69.0"
+    "mysql": "^2.10.2",
+    "request": "^2.69.0",
+    "sequelize": "^3.19.3"
   }
 }

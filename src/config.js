@@ -1,6 +1,7 @@
 exports = module.exports = {
     source: "https://pg.pf.uq.edu.au/embedded",
     timezone: "Australia/Brisbane",
+    cron: '*/10 * * * * *',
     parkingAlias: {
         "p12": "Daycare",
         "p11 l1": "Conifer L1 (Staff)",
@@ -22,6 +23,14 @@ exports = module.exports = {
         table: "body table",
         row: "tr",
         title: "td.zone",
-        data: "td.casual, td.permit"
+        data: "td.casual, td.permit",
+        casual: ".casual"
+    },
+    database: {
+        host: "127.0.0.1",
+        port: 3306,
+        username: "uq_parking",
+        password: "uq_parking",
+        database: "uq_parking"
     }
 }
