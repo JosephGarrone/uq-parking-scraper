@@ -67,7 +67,7 @@ function scrape() {
             var casual = $(row).find(config.selectors.casual).length;
             
             if (isNaN(data)) {
-                data = config.textAlias[data];
+                data = config.textAlias[data.toLowerCase()].toString();
             }
             
             if (title.length != 0 && data.length != 0) {
