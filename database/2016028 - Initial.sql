@@ -6,6 +6,9 @@ SET time_zone = "+00:00";
 CREATE DATABASE IF NOT EXISTS `uq_parking` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
 USE `uq_parking`;
 
+CREATE USER 'uq_parking'@'localhost' IDENTIFIED BY 'uq_parking';
+GRANT ALL ON uq_parking.* TO 'uq_parking'@'localhost';
+
 DROP TABLE IF EXISTS `car_park_info`;
 CREATE TABLE IF NOT EXISTS `car_park_info` (
   `id` int(11) NOT NULL,
