@@ -19,6 +19,10 @@ exports = module.exports = {
         "p2": "Multi Level 1",
         "p1": "Warehouse"
     },
+    textAlias: {
+        "full": 0,
+        "nearly full": 0  
+    },
     selectors: {
         table: "body table",
         row: "tr",
@@ -32,5 +36,14 @@ exports = module.exports = {
         username: "uq_parking",
         password: "uq_parking",
         database: "uq_parking"
+    },
+    logger: {
+        config: {
+            showMillis: true,
+            showTimestamp: true, 
+            info: "gray",
+            error: ["bgRed", "bold"],
+            debug: "rainbow"
+        }
     }
 }

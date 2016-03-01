@@ -1,6 +1,6 @@
 {
   "name": "uq-parking-scraper",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "A utility for scraping the parking details off the UQ Parking website",
   "main": "index.js",
   "scripts": {
@@ -20,6 +20,7 @@
     "cheerio": "^0.20.0",
     "cron": "^1.1.0",
     "mysql": "^2.10.2",
+    "pretty-logger": "^0.1.2",
     "request": "^2.69.0",
     "sequelize": "^3.19.3"
   }

@@ -1,13 +1,12 @@
-CREATE USER 'uq_parking'@'localhost' IDENTIFIED BY 'uq_parking';
-GRANT ALL PRIVILEGES ON uq_parking.* TO 'uq_parking'@'localhost' WITH GRANT OPTION;
-
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 CREATE DATABASE IF NOT EXISTS `uq_parking` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
 USE `uq_parking`;
 
+DROP USER 'uq_parking'@'localhost';
+FLUSH PRIVILEGES;
 CREATE USER 'uq_parking'@'localhost' IDENTIFIED BY 'uq_parking';
-GRANT ALL ON uq_parking.* TO 'uq_parking'@'localhost';
+GRANT ALL PRIVILEGES ON uq_parking.* TO 'uq_parking'@'localhost' WITH GRANT OPTION;
 
 DROP TABLE IF EXISTS `car_park_info`;
 CREATE TABLE IF NOT EXISTS `car_park_info` (
