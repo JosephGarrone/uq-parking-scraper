@@ -14,14 +14,15 @@ var sequelize = new Sequelize(
             timestamps: false,
             underscored: true
         },
-        logging: function() {}
+        logging: console.log
     }
 );
 
 var CarPark = sequelize.define('car_parks', {
     id:  {
         type: Sequelize.INTEGER,
-        primaryKey: true
+        primaryKey: true,
+        field: 'id'
     },
     name: Sequelize.TEXT,
     data_name: Sequelize.TEXT,
@@ -32,7 +33,8 @@ var CarPark = sequelize.define('car_parks', {
 var CarParkInfo = sequelize.define('car_park_info', {
     id:  {
         type: Sequelize.INTEGER,
-        primaryKey: true
+        primaryKey: true,
+        field: 'id'
     },
     car_park: Sequelize.INTEGER,
     available: Sequelize.INTEGER,
@@ -44,8 +46,8 @@ function scrape() {
         if (err) {
             console.log(err); 
             return;  
-        }  
-        
+        } 
+
         var $ = cheerio.load(body);
         
         $(`${config.selectors.table} ${config.selectors.row}`).each(function (index, row) {
@@ -54,18 +56,28 @@ function scrape() {
                 return $(this).text();
             }).get().join('').trim();
             var casual = $(row).find(config.selectors.casual).length;
-
+            
             if (title.length != 0 && data.length != 0) {
+                CarPark.create({
+                    data_name: title,
+                    name: config.parkingAlias[title],
+                    active: true,
+                    casual: casual
+                }).then(function(park) {
+                    console.log(park);
+                })
+                
                 CarPark.findOrCreate({
                     where: {
                         data_name: title
-                    }, defaults: {
+                    }, 
+                    defaults: {
                         data_name: title,
                         name: config.parkingAlias[title],
                         active: true,
                         casual: casual
                     }
-                }).then(function (carPark) {
+                }).then(function (carPark, err) {
                     CarParkInfo.create({
                         car_park: carPark[0].get({ plain: true }).id,
                         available: data,
