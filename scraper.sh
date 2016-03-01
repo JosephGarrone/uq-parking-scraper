@@ -15,7 +15,7 @@ mkdir -p /var/log/uq-parking
 if [ $1 = "stop" ]; then
     forever stop index.js
 else
-    forever start index.js -l $DIR$FOREVER_LOG -o $DIR$STDOUT -e $DIR$STDERR --pidFile $DIR$PID
+    forever start -l $DIR$FOREVER_LOG -o $DIR$STDOUT -e $DIR$STDERR --pidFile $DIR$PID index.js 
 fi
 
 
