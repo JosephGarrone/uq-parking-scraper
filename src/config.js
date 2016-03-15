@@ -1,7 +1,7 @@
 exports = module.exports = {
     source: "https://pg.pf.uq.edu.au/embedded",
     timezone: "Australia/Brisbane",
-    cron: '*/10 * * * * *',
+    cron: '* * * * * *',
     parkingAlias: {
         "p12": "Daycare",
         "p11 l1": "Conifer L1 (Staff)",
