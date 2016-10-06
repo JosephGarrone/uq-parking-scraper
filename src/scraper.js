@@ -16,7 +16,8 @@ var sequelize = new Sequelize(
             timestamps: false,
             underscored: true
         },
-        logging: function() {}//console.log
+        logging: function() {},
+        host: config.database.host
     }
 );
 

@@ -7,6 +7,8 @@ DROP USER 'uq_parking'@'localhost';
 FLUSH PRIVILEGES;
 CREATE USER 'uq_parking'@'localhost' IDENTIFIED BY 'uq_parking';
 GRANT ALL PRIVILEGES ON uq_parking.* TO 'uq_parking'@'localhost' WITH GRANT OPTION;
+CREATE USER 'uq_parking'@'%' IDENTIFIED BY 'uq_parking';
+GRANT ALL PRIVILEGES ON uq_parking.* TO 'uq_parking'@'%' WITH GRANT OPTION;
 
 DROP TABLE IF EXISTS `car_park_info`;
 CREATE TABLE IF NOT EXISTS `car_park_info` (
@@ -40,3 +42,8 @@ ALTER TABLE `car_park_info`
 
 ALTER TABLE `car_park_info`
   ADD CONSTRAINT `car_park_info_ibfk_1` FOREIGN KEY (`car_park`) REFERENCES `car_parks` (`id`);
+
+ALTER TABLE `car_park_info` ADD INDEX (`time`);
+
+set global sql_mode='STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION';
+set session sql_mode='STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION';
