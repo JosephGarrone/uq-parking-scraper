@@ -1,11 +1,15 @@
-var cheerio = require('cheerio');
-var request = require('request');
-var Sequelize = require('sequelize'); 
+// Scraper for collecting UQ Parking Data
+
+// Dependancies
+var cheerio = require('cheerio'); // Parser
+var request = require('request'); // HTML Requests
+var Sequelize = require('sequelize'); //ORM
 var Logger = require('pretty-logger');
 
 var config = require('./config.js');
 var log = new Logger(config.logger);
 
+// ORM object so I can add things to the DB
 var sequelize = new Sequelize(
     config.database.database, 
     config.database.username, 
@@ -47,7 +51,8 @@ var CarParkInfo = sequelize.define('car_park_info', {
 });
 
 function scrape() {
-    log.info("Data fetch started");
+    // Main function to collect the data
+    //log.info("Data fetch started");
     
     request(config.source, function (err, response, body) {
         if (err) {
@@ -111,6 +116,7 @@ function saveCarPark(parks, info) {
 }
 
 function saveCarParkInfo(info) {
+    // Splits out the metadata attached
     if (info.length == 0) {
         return;
     } 
